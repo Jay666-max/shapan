@@ -3,11 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://huojian51.gitee.io/shapan",
+  "homepage": "https://jay666-max.github.io/shapan",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build --base=/shapan/",
-    "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
