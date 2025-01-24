@@ -6,7 +6,7 @@
   "homepage": "https://jay666-max.github.io/shapan",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",  // 移除 -b 参数
+    "build": "tsc && vite build --base=/shapan/",
     "preview": "vite preview"
   },
   "dependencies": {
