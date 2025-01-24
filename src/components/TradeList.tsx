@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { 
   Paper, Table, TableBody, TableCell, TableContainer, TableHead, 
   TableRow, Button, Typography, Dialog, DialogTitle, DialogContent,
-  DialogActions, TextField, Box, Alert, IconButton, Tooltip
+  DialogActions, TextField, Box, Alert
 } from '@mui/material';
 import { Trade } from '../types';
 import { formatNumber, formatTimestamp, calculateProfit } from '../utils/tradeUtils';

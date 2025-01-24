@@ -1,4 +1,4 @@
-import { Box, Button, FormControl, Paper, Select, TextField, Typography, InputLabel, MenuItem, Alert } from '@mui/material';
+import { Box, Button, FormControl, Paper, Select, TextField, Typography, InputLabel, MenuItem } from '@mui/material';
 import { useState } from 'react';
 import { TradeDirection } from '../types';
 import { TraderConfig } from '../config/traders';
@@ -9,15 +9,15 @@ interface TradingPanelProps {
   traders: TraderConfig[];
 }
 
+// 删除未使用的 error 状态
 const TradingPanel = ({ onTrade, traders }: TradingPanelProps) => {
-  const [trader, setTrader] = useState(traders[0]?.id || '');
+  const [trader, setTrader] = useState('');
   const [price, setPrice] = useState('');
   const [quantity, setQuantity] = useState('');
-  const [error, setError] = useState('');
-
+  
   const handleTrade = (direction: TradeDirection) => {
     if (!price || !quantity) {
-      setError('请填写价格和数量');
+      // 改用 alert 或者直接 return
       return;
     }
 
@@ -25,24 +25,20 @@ const TradingPanel = ({ onTrade, traders }: TradingPanelProps) => {
     const quantityNum = Number(quantity);
 
     if (priceNum <= 0) {
-      setError('价格必须大于0');
       return;
     }
 
     if (quantityNum <= 0) {
-      setError('数量必须大于0');
       return;
     }
 
     if (!Number.isInteger(quantityNum)) {
-      setError('数量必须为整数');
       return;
     }
 
     onTrade(trader, direction, priceNum, quantityNum);
     setPrice('');
     setQuantity('');
-    setError('');
   };
 
   return (
